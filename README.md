@@ -8,6 +8,10 @@ Rake tasks to ease the development and debugging of Grape APIs.
 
 `rake grape_raketasks:routes` is like `rake routes` for your Grape APIs. All routes within every Grape API in your web application will be printed to the terminal, along with parameter requiremements, HTTP verb, the API it belongs to, etc.
 
+#### Filtering
+
+If you want to see routes belonging to only one API, pass an environment variable set to your API name in snake-case after writing the task. For example, if I wanted to view only routes belonging to my Grape API named CatPictures, I'd execute `rake grape_raketasks:routes GRAPE_API=cat_pictures`.
+
 ## Installation
 
 1.) grape-raketasks isn't served on Rubygems yet. Reference this repository, or your own fork, from a Gemfile:
