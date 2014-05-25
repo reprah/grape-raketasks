@@ -14,14 +14,14 @@ If you want to see routes belonging to only one API, pass an environment variabl
 
 ## Installation
 
-1. Add `grape-raketasks` to your Gemfile:
+1.) Add `grape-raketasks` to your Gemfile:
 
 ```ruby
 # Gemfile
 gem 'grape-raketasks'
 ```
 
-2. Install the gem via Bundler:
+2.) Install the gem via Bundler:
 
 ```shell
 $ bundle install
@@ -32,7 +32,7 @@ or on the command line:
 $ gem install grape-raketasks
 ```
 
-3. If your Grape APIs are defined in a Sinatra or Rack web application, you need to write a rake task called `:environment`that loads the application's environment first. This gem's tasks are dependent on it. You could put this in the root of your project directory:
+3.) If your Grape APIs are defined in a Sinatra or Rack web application, you need to write a rake task called `:environment`that loads the application's environment first. This gem's tasks are dependent on it. You could put this in the root of your project directory:
 
 ```ruby
 # Rakefile
@@ -50,9 +50,9 @@ end
 ```
 Rails applications with mounted Grape APIs don't require an extra step here.
 
-4. Run `rake -T` to see all available rake tasks. Tasks with a `grape_raketasks` namespace should appear somewhere.
+4.) Run `rake -T` to see all available rake tasks. Tasks with a `grape_raketasks` namespace should appear somewhere.
 
-5. Use the tasks! Find bugs or ideas for improvement! Report them here!
+5.) Use the tasks! Find bugs or ideas for improvement! Report them here!
 
 ## Contributing
 
