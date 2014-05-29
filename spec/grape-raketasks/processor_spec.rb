@@ -27,4 +27,3 @@ describe GrapeRakeTasks::Processor do
     end
   end
 end
-

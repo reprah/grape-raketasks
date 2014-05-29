@@ -1,8 +1,10 @@
 require 'active_support/core_ext/class'
 
 # enable adding the API name to a route's options
-class Grape::Route
-  attr_accessor :options
+module Grape
+  class Route
+    attr_accessor :options
+  end
 end
 
 module GrapeRakeTasks
@@ -26,4 +28,3 @@ module GrapeRakeTasks
     end
   end
 end
-

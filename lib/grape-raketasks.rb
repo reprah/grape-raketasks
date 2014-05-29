@@ -6,4 +6,3 @@ require 'grape-raketasks/console_formatter'
 module GrapeTasks
   require 'grape-raketasks/railtie' if defined?(Rails)
 end
-

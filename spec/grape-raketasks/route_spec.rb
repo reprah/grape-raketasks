@@ -15,7 +15,7 @@ describe GrapeRakeTasks::Route do
 
     it 'returns a collection of routes that know their parent API' do
       routes = described_class.api_routes(SampleApiOne::API)
-      every_route_has_api = routes.all? { |r| r.options.has_key?(:api) }
+      every_route_has_api = routes.all? { |r| r.options.key?(:api) }
       expect(every_route_has_api).to be_true
     end
   end

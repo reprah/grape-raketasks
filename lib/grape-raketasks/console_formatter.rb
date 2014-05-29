@@ -51,4 +51,3 @@ module GrapeRakeTasks
     end
   end
 end
-
