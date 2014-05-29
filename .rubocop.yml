@@ -17,3 +17,6 @@ ClassLength:
 
 FileName:
   Enabled: false
+
+Encoding:
+  Enabled: false
