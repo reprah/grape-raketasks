@@ -19,4 +19,3 @@ end
 [SampleApiOne::API, SampleApiTwo::API].each do |api|
   api.routes << grape_route_object
 end
-

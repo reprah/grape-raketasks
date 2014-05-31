@@ -5,19 +5,19 @@ describe GrapeRakeTasks::ConsoleFormatter do
 
   describe '#construct_output' do
     before do
-      formatter.stub(format_route: 'formatted route') 
+      formatter.stub(format_route: 'formatted route')
     end
 
     context 'when routes exist' do
       before do
-        formatter.construct_output(['a route']) 
+        formatter.construct_output(['a route'])
       end
 
       it 'adds formatted routes to the buffer' do
         expect(formatter.buffer).to include('formatted route')
       end
     end
-    
+
     context 'when no routes exist' do
       before do
         formatter.construct_output([])
@@ -25,7 +25,7 @@ describe GrapeRakeTasks::ConsoleFormatter do
 
       it 'adds a message to the buffer' do
         msg = formatter.buffer.first
-        expect(msg).to include("You don't have any Grape routes defined!") 
+        expect(msg).to include("You don't have any Grape routes defined!")
       end
     end
   end
@@ -35,7 +35,7 @@ describe GrapeRakeTasks::ConsoleFormatter do
 
     it 'returns a text representation of a route object' do
       result = formatter.format_route(route_object)
-      expect(result).to match(/METHOD:\s+"GET"/) 
+      expect(result).to match(/METHOD:\s+"GET"/)
     end
   end
 
@@ -49,4 +49,3 @@ describe GrapeRakeTasks::ConsoleFormatter do
     end
   end
 end
-

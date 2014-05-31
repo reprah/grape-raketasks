@@ -2,6 +2,8 @@
 
 Rake tasks to ease the development and debugging of Grape APIs.
 
+[![Build Status](https://travis-ci.org/reprah/grape-raketasks.svg)](https://travis-ci.org/reprah/grape-raketasks)
+
 ## Available Tasks
 
 ### Routes
@@ -38,7 +40,7 @@ $ gem install grape-raketasks
 # Rakefile
 
 require 'rake'
-require 'bundler' 
+require 'bundler'
 Bundler.setup
 require 'grape-raketasks'
 require 'grape-raketasks/tasks'
