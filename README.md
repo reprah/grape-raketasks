@@ -12,7 +12,19 @@ Rake tasks to ease the development and debugging of Grape APIs.
 
 #### Filtering
 
-If you want to see routes belonging to only one API, pass an environment variable set to your API name in snake-case after writing the task. For example, if I wanted to view only routes belonging to my Grape API named CatPictures, I'd execute `rake grape_raketasks:routes GRAPE_API=cat_pictures`.
+If you want to see routes belonging to only one API:
+
+Pass an environment variable set to your API name after writing the task. Given the API below, and assuming we only want to see routes belonging to this CatPictures API...
+
+```ruby
+module CatPictures
+  class API < Grape::API
+    # API stuff
+  end
+end
+```
+
+I'd execute `rake grape_raketasks:routes API=cat_pictures/api`. Notice how it must be snake-cased, and we have to list which modules the API is nested in, separated by a slash.
 
 ## Installation
 

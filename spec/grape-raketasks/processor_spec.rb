@@ -8,13 +8,33 @@ describe GrapeRakeTasks::Processor do
 
     let(:processor) { described_class.new(routes) }
 
-    context 'when given a Grape API to filter by' do
-      let(:filter) { 'sample_api_one' }
-
-      it 'returns only routes belonging to that API' do
+    shared_examples 'successful API filtering' do
+      it 'returns routes belonging to one API' do
         filtered = processor.filter_by_api(filter)
         filtered_apis = filtered.map(&:route_api)
         expect(filtered_apis).to eq [SampleApiOne::API]
+      end
+    end
+
+    context 'when given a Grape API to filter by' do
+      let(:filter) { 'sample_api_one/api' }
+
+      it_behaves_like 'successful API filtering'
+
+      context "when filter's case does not exactly match an API" do
+        let(:filter) { 'SaMple_aPi_oNe/ApI' }
+
+        it_behaves_like 'successful API filtering'
+      end
+
+      context 'when API is not nested within another constant' do
+        let(:filter) { 'sample_api_three' }
+
+        it 'returns routes belonging to that api' do
+          filtered = processor.filter_by_api(filter)
+          filtered_apis = filtered.map(&:route_api)
+          expect(filtered_apis).to include(SampleApiThree)
+        end
       end
     end
 

@@ -25,7 +25,7 @@ describe GrapeRakeTasks::ConsoleFormatter do
 
       it 'adds a message to the buffer' do
         msg = formatter.buffer.first
-        expect(msg).to include("You don't have any Grape routes defined!")
+        expect(msg).to include("You don't have any Grape routes")
       end
     end
   end

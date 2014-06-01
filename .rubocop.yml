@@ -10,7 +10,7 @@ LineLength:
   Enabled: false
 
 MethodLength:
-  Enabled: false
+  Enabled: true
 
 ClassLength:
   Enabled: false

@@ -12,12 +12,17 @@ module GrapeRakeTasks
       buffer.join << "\n\n"
     end
 
-    def construct_output(routes)
+    def construct_output(routes, filter = nil)
       if routes.any?
-        buffer << routes.map { |r| format_route(r) }.join("\n\n")
+        buffer << formatted_routes(routes)
       else
-        buffer << no_routes_message
+        buffer << no_routes_message(filter)
       end
+    end
+
+    def formatted_routes(routes)
+      formatted = routes.map { |r| format_route(r) }
+      formatted.join("\n\n")
     end
 
     def format_route(route)
@@ -43,9 +48,10 @@ module GrapeRakeTasks
       key.to_s.upcase.concat(': ')
     end
 
-    def no_routes_message
+    def no_routes_message(filter)
+      subject = filter ? filter : 'your application'
       <<-MSG.strip_heredoc
-        You don't have any Grape routes defined!
+        You don't have any Grape routes defined for #{subject}.
         Visit https://github.com/intridea/grape for help.
       MSG
     end
