@@ -10,15 +10,13 @@ module GrapeRakeTasks
 
     def format(formatter, filter = nil)
       routes_to_display = filter_by_api(filter)
-      constant = filter_to_constant(filter)
-      formatter.construct_output(routes_to_display, constant)
+      formatter.construct_output(routes_to_display, filter)
       formatter.result
     end
 
     def filter_by_api(filter = nil)
       return routes unless filter
-      constant = filter_to_constant(filter)
-      pattern = Regexp.new(constant, Regexp::IGNORECASE)
+      pattern = Regexp.new(filter, Regexp::IGNORECASE)
       filtered = routes.select do |r|
         matches_filter_pattern?(r, pattern)
       end
@@ -26,12 +24,6 @@ module GrapeRakeTasks
     end
 
     private
-
-    def filter_to_constant(filter)
-      return unless filter
-      parts = filter.split('/')
-      parts.map(&:camelcase).join('::')
-    end
 
     def matches_filter_pattern?(route, pattern)
       # match filter against string representation of a route's API

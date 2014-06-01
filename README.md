@@ -24,7 +24,7 @@ module CatPictures
 end
 ```
 
-I'd execute `rake grape_raketasks:routes API=cat_pictures/api`. Notice how it must be snake-cased, and we have to list which modules the API is nested in, separated by a slash.
+I'd execute `rake grape_raketasks:routes API=CatPictures::API`. Notice how we have to list which constants the API is nested in (if any), separated by a double colon, like in Ruby code.
 
 ## Installation
 

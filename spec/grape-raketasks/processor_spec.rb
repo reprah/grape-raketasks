@@ -17,18 +17,18 @@ describe GrapeRakeTasks::Processor do
     end
 
     context 'when given a Grape API to filter by' do
-      let(:filter) { 'sample_api_one/api' }
+      let(:filter) { 'SampleAPIOne::API' }
 
       it_behaves_like 'successful API filtering'
 
       context "when filter's case does not exactly match an API" do
-        let(:filter) { 'SaMple_aPi_oNe/ApI' }
+        let(:filter) { 'SampleApiOne::API' }
 
         it_behaves_like 'successful API filtering'
       end
 
       context 'when API is not nested within another constant' do
-        let(:filter) { 'sample_api_three' }
+        let(:filter) { 'SampleAPIThree' }
 
         it 'returns routes belonging to that api' do
           filtered = processor.filter_by_api(filter)
