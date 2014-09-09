@@ -5,7 +5,9 @@ describe GrapeRakeTasks::ConsoleFormatter do
 
   describe '#construct_output' do
     before do
-      formatter.stub(format_route: 'formatted route')
+      allow(formatter)
+        .to receive(:format_route)
+        .and_return('formatted route')
     end
 
     context 'when routes exist' do

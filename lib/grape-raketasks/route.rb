@@ -22,9 +22,10 @@ module GrapeRakeTasks
     end
 
     def self.route_with_api_name(grape_route, api_name)
-      new_opts = grape_route.options.merge(api: api_name)
-      grape_route.options = new_opts
-      grape_route
+      route = grape_route.dup
+      new_opts = route.options.merge(api: api_name)
+      route.options = new_opts
+      route
     end
   end
 end
