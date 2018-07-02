@@ -27,6 +27,8 @@ module GrapeRakeTasks
 
     def format_route(route)
       opts = route.options
+      opts[:path] = route.path
+
       # two characters (colon + space) after the title
       longest_key_length = opts.keys.map(&:length).max + 2
 
