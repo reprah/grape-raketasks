@@ -27,7 +27,11 @@ module GrapeRakeTasks
 
     def matches_filter_pattern?(route, pattern)
       # match filter against string representation of a route's API
-      api_as_string = route.route_api.to_s
+      api_as_string = if Gem.loaded_specs['grape'].version.to_s >= '0.15.1'
+                        route.options[:api]
+                      else
+                        route.route_api
+                      end.to_s
       api_as_string.match(pattern)
     end
   end
